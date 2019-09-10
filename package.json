@@ -4,7 +4,7 @@
   "description": "Node and Express",
   "main": "app.js",
   "scripts": {
-    "debug": " DEBUG=app node app.js",
+    "start": "set DEBUG=app & node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
