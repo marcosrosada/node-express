@@ -21,7 +21,14 @@ app.set('view engine', 'ejs'); // 'pug'
 
 app.get('/', (_req, res) => {
   // res.sendFile(path.join(__dirname, 'views/index.html'));
-  res.render('index', { title: 'Marcos Rosada', list: ['Item A', 'Item B', 'Item C'] });
+  res.render('index',
+    {
+      title: 'Marcos Rosada',
+      nav: [
+        { link: '/books', title: 'Books' },
+        { link: '/authors', title: 'Authors' }
+      ]
+    });
 });
 
 app.listen(port, () => {
