@@ -21,7 +21,7 @@ app.set('view engine', 'pug');
 
 app.get('/', (_req, res) => {
   // res.sendFile(path.join(__dirname, 'views/index.html'));
-  res.render('index');
+  res.render('index', { list: ['Item A', 'Item B', 'Item C']});
 });
 
 app.listen(port, () => {

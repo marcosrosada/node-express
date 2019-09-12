@@ -1,7 +1,10 @@
 html
     head
         title My App
-    body
-        h1 Header
+    body(class=["bodyClass"])
+        h1(id="headerID") Header
         p
             h3 Sub Header
+        ul
+            each item in list
+                li= item
