@@ -14,14 +14,14 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 
 app.set('views', './src/views');
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs'); // 'pug'
 // app.get('/', function(req, res) {
 //     res.send('Hello from server');
 // });
 
 app.get('/', (_req, res) => {
   // res.sendFile(path.join(__dirname, 'views/index.html'));
-  res.render('index', { list: ['Item A', 'Item B', 'Item C']});
+  res.render('index', { title: 'Marcos Rosada', list: ['Item A', 'Item B', 'Item C'] });
 });
 
 app.listen(port, () => {
