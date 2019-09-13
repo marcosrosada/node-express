@@ -6,6 +6,7 @@ const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
+const bookRouter = express.Router();
 
 app.use(morgan('tiny'));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -18,6 +19,18 @@ app.set('view engine', 'ejs'); // 'pug'
 // app.get('/', function(req, res) {
 //     res.send('Hello from server');
 // });
+
+bookRouter.route('/')
+  .get((req, res) => {
+    res.send('Books');
+  });
+
+bookRouter.route('/single')
+  .get((req, res) => {
+    res.send('Books single');
+  });
+
+app.use('/books', bookRouter);
 
 app.get('/', (_req, res) => {
   // res.sendFile(path.join(__dirname, 'views/index.html'));
