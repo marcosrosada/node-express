@@ -3,31 +3,36 @@ const express = require('express');
 const bookRouter = express.Router();
 const books = [
   {
+    id: 1,
     title: 'Title A',
     genre: 'Historical',
     author: 'Lev',
     read: false
   },
   {
-    title: 'Title A',
+    id: 2,
+    title: 'Title B',
     genre: 'Historical',
     author: 'Lev',
     read: false
   },
   {
-    title: 'Title A',
+    id: 3,
+    title: 'Title C',
     genre: 'Historical',
     author: 'Lev',
     read: false
   },
   {
-    title: 'Title A',
+    id: 4,
+    title: 'Title D',
     genre: 'Historical',
     author: 'Lev',
     read: false
   },
   {
-    title: 'Title A',
+    id: 5,
+    title: 'Title F',
     genre: 'Historical',
     author: 'Lev',
     read: false
@@ -37,7 +42,7 @@ const books = [
 bookRouter.route('/')
   .get((req, res) => {
     res.render(
-      'books',
+      'bookListView',
       {
         title: 'Marcos Rosada',
         nav: [
@@ -49,9 +54,20 @@ bookRouter.route('/')
     );
   });
 
-bookRouter.route('/single')
+bookRouter.route('/:id')
   .get((req, res) => {
-    res.send('Single');
+    const { id } = req.params;
+    res.render(
+      'bookView',
+      {
+        title: 'Marcos Rosada',
+        nav: [
+          { link: '/books', title: 'Books' },
+          { link: '/authors', title: 'Authors' }
+        ],
+        book: books[id]
+      }
+    );
   });
 
 module.exports = bookRouter;

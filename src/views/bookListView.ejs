@@ -55,7 +55,7 @@
             <tbody>
               <%for(let i=0; i < books.length; i++) {%>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row"><%=books[i].id%></th>
                   <td><%=books[i].title%></td>
                   <td><%=books[i].author%></td>
                   <td><%=books[i].genre%></td>
