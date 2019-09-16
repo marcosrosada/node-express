@@ -55,7 +55,9 @@
             <tbody>
               <%for(let i=0; i < books.length; i++) {%>
                 <tr>
-                  <th scope="row"><%=books[i].id%></th>
+                  <th scope="row">
+                      <a href="/books/<%=i%>" ><%=books[i].id%></a>
+                  </th>
                   <td><%=books[i].title%></td>
                   <td><%=books[i].author%></td>
                   <td><%=books[i].genre%></td>
